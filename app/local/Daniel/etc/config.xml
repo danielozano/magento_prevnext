@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Daniel_PrevNext>
+			<version>1.0.0</version>
+		</Daniel_PrevNext>
+	</modules>
+	<global>
+		<blocks>
+			<daniel_prevnext>
+				<class>Daniel_PrevNext_Block</class>
+			</daniel_prevnext>
+		</blocks>
+		<helpers>
+			<daniel_prevnext>
+				<class>Daniel_PrevNext_Helper</class>
+			</daniel_prevnext>
+		</helpers>
+		<models>
+			<daniel_prevnext>
+				<class>Daniel_PrevNext_Model</class>
+			</daniel_prevnext>
+		</models>
+	</global>
+	<frontend>
+		<layout>
+			<updates>
+				<prevnext>
+					<file>daniel/prevnext/prevnext.xml</file>
+				</prevnext>
+			</updates>
+		</layout>
+		<events>
+			<catalog_controller_product_view>
+				<observers>
+					<daniel_prevnext>
+						<class>Daniel_PrevNext_Model_Observer_Product</class>
+						<method>setCategory</method>
+					</daniel_prevnext>
+				</observers>
+			</catalog_controller_product_view>
+		</events>
+	</frontend>
+</config>

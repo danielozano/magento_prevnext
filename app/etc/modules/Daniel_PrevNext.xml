@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Daniel_PrevNext>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Daniel_PrevNext>
+	</modules>
+</config>
