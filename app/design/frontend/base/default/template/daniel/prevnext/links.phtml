@@ -1,0 +1,18 @@
+<?php $_helper = $this->helper('daniel_prevnext/data'); ?>
+<?php $_prev = $_helper->getPrevProduct(); ?>
+<?php $_next = $_helper->getNextProduct(); ?>
+
+<?php if ($_prev || $_next): ?>
+	<?php if ($_prev): ?> 
+	
+		<a class="prev-prod" href="<?php echo $_prev->getUrlPath(); ?>">
+			<?php echo $this->__('<- Producto anterior');?>
+		</a>
+	<?php endif; ?>
+
+	<?php if ($_next): ?>
+		<a class="next-prod" href="<?php echo $_next->getUrlPath(); ?>">
+			<?php echo $this->__('Producto siguiente ->');?>
+		</a>
+	<?php endif; ?>
+<?php endif; ?>
