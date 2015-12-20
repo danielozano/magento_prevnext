@@ -1,4 +1,7 @@
 <?php
+/**
+ * TODO: There is a bug in some stores when you access the product directly (no category9.
+ */
 class Daniel_PrevNext_Model_Observer_Product
 {
 	/**

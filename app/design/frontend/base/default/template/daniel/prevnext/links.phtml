@@ -1,17 +1,17 @@
-<?php $_helper = $this->helper('daniel_prevnext/data'); ?>
-<?php $_prev = $_helper->getPrevProduct(); ?>
-<?php $_next = $_helper->getNextProduct(); ?>
+<?php 
+	$_prev = $this->getPreviousProductArray();
+	$_next = $this->getNextProductArray(); 
+?>
 
 <?php if ($_prev || $_next): ?>
 	<?php if ($_prev): ?> 
-	
-		<a class="prev-prod" href="<?php echo $_prev->getUrlPath(); ?>">
+		<a class="prev-prod" href="<?php echo $_prev['url'] ?>" title="<?php echo $_prev['name'] ?>">
 			<?php echo $this->__('<- Producto anterior');?>
 		</a>
 	<?php endif; ?>
 
 	<?php if ($_next): ?>
-		<a class="next-prod" href="<?php echo $_next->getUrlPath(); ?>">
+		<a class="next-prod" href="<?php echo $_next['url'] ?>" title="<?php echo $_next['name'] ?>">
 			<?php echo $this->__('Producto siguiente ->');?>
 		</a>
 	<?php endif; ?>

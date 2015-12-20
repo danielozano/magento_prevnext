@@ -109,12 +109,14 @@ class Daniel_PrevNext_Block_Links extends Mage_Core_Block_Template
 			$prevId = $productIds[$currentPosition - 1];
 		}
 		$prevProduct = $productsArray[$prevId];
-		$prevProductUrl = Mage::getUrl(
+		$product = Mage::getModel('catalog/product')->load($prevId);
+		$prevProductUrl = $product->getProductUrl(true);
+		/*$prevProductUrl = Mage::getUrl(
 			$prevProduct['url_key'], array(
 				'_nosid' => true,
 				'_store' => 'default',
 				'_type' => 'direct_link'
-		));
+		));*/
 		$result['url'] = $prevProductUrl;
 		$result['id'] = $prevProduct['entity_id'];
 		$result['name'] = $prevProduct['name'];
@@ -145,11 +147,19 @@ class Daniel_PrevNext_Block_Links extends Mage_Core_Block_Template
 			$nextId = $productIds[$currentPosition + 1];
 		}
 		$nextProduct = $productsArray[$nextId];
-		$nextProductUrl = Mage::getUrl($nextProduct['url_key'], array(
+		/**
+		 * TODO: Temporal fix, try to clean up this
+		 */
+		$product = Mage::getModel('catalog/product')->load($nextId);
+		$nextProductUrl = $product->getProductUrl(true);
+		/**
+		 * TODO: watch because this doesnt work, same on prev product.
+		 */
+		/*nextProductUrl = Mage::getUrl($nextProduct['url_key'], array(
 			'_nosid' => true,
 			'_store' => 'default',
 			'_type' => 'direct_link'
-		));
+		));*/
 		$result['url'] = $nextProductUrl;
 		$result['name'] = $nextProduct['name'];
 		$result['id'] = $nextId;
